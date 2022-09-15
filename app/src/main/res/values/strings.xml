@@ -1,0 +1,81 @@
+<resources>
+    <string name="app_name">Time Table CS&amp;IT</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="date_text">Monday 29/08</string>
+    <string name="dummy_class">BSCS 6th Self</string>
+    <string name="class_">Class</string>
+    <string name="greating_message">Hello There !</string>
+    <string name="date_">Date</string>
+    <string name="total_classes">Total Classes</string>
+    <string name="_0">0</string>
+    <string name="room_no">Room No</string>
+    <string name="time_dummy">8:00 - 12 : 30</string>
+    <string name="class_detail_dummy">Class Name\nCompiler Construstion\nTeacher name</string>
+
+
+    <string name="credits_hours">Credits Hours</string>
+
+
+    <string name="hello_world">Hello world</string>
+    <string name="calculate">Calculate</string>
+    <string name="credit_hours">Credit Hours</string>
+    <string name="gpa">Gpa</string>
+    <string name="sem_total_credits">Sem Total Credits</string>
+
+
+    <string name="sem_gpa">Sem Gpa</string>
+    <string name="_0_00">0.00</string>
+
+    <string name="sem_10">Sem # 10</string>
+    <string name="semester_9">Semester 9</string>
+    <string name="semester_8">Semester 8</string>
+    <string name="semester_6">Semester 6</string>
+    <string name="semester_4">Semester 4</string>
+    <string name="semester_7">Semester 7</string>
+    <string name="semester_5">Semester 5</string>
+    <string name="semester_3">Semester 3</string>
+    <string name="semester_1">Semester 1</string>
+    <string name="semester_2">Semester 2</string>
+    <string name="cgpa_calculator">CGPA Calculator</string>
+    <string name="cgpa_is">Cgpa is</string>
+    <string name="marks">Marks</string>
+    <string name="subject2">Subject2</string>
+    <string name="subject5">Subject5</string>
+    <string name="subject3">Subject3</string>
+    <string name="subject1">Subject1</string>
+    <string name="gpa_is">Gpa is</string>
+    <string name="cgpa">CGPA</string>
+    <string name="semesters">Semesters</string>
+    <string name="subject7">Subject7</string>
+    <string name="subject8">Subject8</string>
+    <string name="scroll_viwe">This is use as Scroll View</string>
+    <string name="verible">HH:mm</string>
+    <string name="available_rooms">Available Rooms</string>
+    <string name="no_room_avilable_between_8_00_9_30">No Room Avilable Between 8:00 - 9:30</string>
+    <string name="home">Home</string>
+    <string name="available_room">Available Room</string>
+    <string name="change_class">Change Class</string>
+    <string name="gpa_calculator">Gpa Calculator</string>
+    <string name="cgpa_calculator_text">CGPA Calculator</string>
+    <string name="update_timetable">Update TimeTable</string>
+    <string name="email">Email</string>
+    <string name="contact_us">Contact US</string>
+    <string name="subject6">Subject6</string>
+    <string name="subject4">Subject4</string>
+    <string name="_8th">8th</string>
+    <string name="_4th">4th</string>
+    <string name="_7th">7th</string>
+    <string name="_6th">6th</string>
+    <string name="_5th">5th</string>
+    <string name="_3rd">3rd</string>
+    <string name="_1st">1st</string>
+    <string name="_2nd">2nd</string>
+    <string name="gpa_">GPA</string>
+    <string name="about_us_fragment">About us Fragment</string>
+    <string name="click_on_your_class">Click on Your Class</string>
+
+
+</resources>

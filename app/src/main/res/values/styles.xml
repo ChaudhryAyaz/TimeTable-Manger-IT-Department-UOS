@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="listItemtext_color">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="Heading_text_style">
+        <item name="android:theme">@style/ThemeOverlay.AppCompat.DayNight</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="listview_item_style">
+        <item name="android:background">@drawable/edit</item>
+        <item name="android:textColor">#43A047</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>

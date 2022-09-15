@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeFragment"
+    >
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:ignore="UselessParent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@drawable/edit"
+        android:id="@+id/home_header"
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        >
+
+        <TextView
+            android:layout_marginStart="10dp"
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/greating_message"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.021" />
+
+
+        <RelativeLayout
+
+            android:id="@+id/class_detail_parent_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView">
+
+            <TextView
+                android:paddingTop="10dp"
+                android:id="@+id/textView2"
+                android:layout_width="60dp"
+                android:layout_height="40dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="10dp"
+                android:text="@string/class_"
+                android:textSize="16sp" />
+
+            <TextView
+                android:paddingStart="6sp"
+                android:id="@+id/class_name"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="112dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="5sp"
+                android:layout_toEndOf="@+id/textView2"
+                android:paddingTop="10dp"
+                android:text="@string/dummy_class"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:drawableEndCompat="@drawable/ic_baseline_edit_24" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/date_details_class_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@color/teal_700"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/class_detail_parent_view">
+            <TextView
+                android:id="@+id/date_dummy"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="10dp"
+                android:paddingTop="10dp"
+                android:text="@string/date_"
+                android:textSize="16sp"
+                tools:ignore="RelativeOverlap,TextContrastCheck" />
+
+            <TextView
+                android:id="@+id/date_view"
+                android:layout_width="178dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="140dp"
+                android:layout_toEndOf="@+id/date_dummy"
+                android:padding="5dp"
+                android:text="@string/date_text"
+
+                android:textColor="#263238"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+        <RelativeLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/home_header"
+            app:layout_constraintTop_toBottomOf="@+id/date_details_class_number">
+
+            <TextView
+                android:paddingTop="10dp"
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="9dp"
+                android:text="@string/total_classes"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/totalclass_view"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="83dp"
+
+                android:layout_toEndOf="@+id/textView6"
+                android:paddingTop="5dp"
+                android:text="@string/_0"
+                android:textColor="#0097A7"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                tools:ignore="RelativeOverlap,TextContrastCheck,TextContrastCheck" />
+
+<!--            <View-->
+<!--                -->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="2dp"-->
+<!--                android:layout_marginTop="40dp"-->
+<!--                android:background="@color/black"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent" />-->
+        </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <ListView
+        android:background="@drawable/edit"
+        android:padding="5sp"
+        android:id="@+id/home_listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        tools:listitem="@layout/listview_item" />
+</LinearLayout>
+
+</FrameLayout>

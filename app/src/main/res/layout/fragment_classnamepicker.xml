@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".classnamepicker"
+    android:padding="5sp"
+    >
+    <TextView
+            android:background="@drawable/edit"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:id="@+id/textView3"
+            style="@style/Heading_text_style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/click_on_your_class"
+            />
+    <ListView
+
+            android:id="@+id/classes_name_listview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/classname_listview_item"/>
+
+
+</LinearLayout>
