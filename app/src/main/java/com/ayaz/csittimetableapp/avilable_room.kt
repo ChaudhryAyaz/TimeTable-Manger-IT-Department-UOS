@@ -42,7 +42,7 @@ class avilable_room : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         avilableRoomlistview = view.findViewById(R.id.avilable_list_view)
-        var starting_row  = 2
+
         var starting_cell  = 2
         var temp_text : String
         var index = 0
@@ -115,32 +115,42 @@ class avilable_room : Fragment() {
         {
 
         }
+        var tempstarting_row = 2
+        var ending = 19
         var temp = starting_cell
         var day_name = Calendar.getInstance(TimeZone.getTimeZone("UTC")).get(Calendar.DAY_OF_WEEK)
         when (day_name) {
             1 -> {
                 index = 0
+
+                tempstarting_row = 2
+                ending = 19
                 avilableRoomlistview.visibility = View.GONE
             }
             2 -> {
-
+                tempstarting_row = 2
+                ending = 19
                 index = 0
             }
             3-> {
-
-                index = 1
+                tempstarting_row = 22
+                ending = 39
+                index = 0
             }
             4 -> {
-
-                index = 2
+                tempstarting_row = 42
+                ending = 59
+                index = 0
             }
             5 -> {
-
-                index = 3
+                tempstarting_row = 62
+                ending = 79
+                index = 0
             }
             6 -> {
-
-                index = 4
+                tempstarting_row = 82
+                ending = 99
+                index = 0
             }
             7-> {
                 index = 0
@@ -156,17 +166,17 @@ class avilable_room : Fragment() {
         val xlWs = xlWb.getSheetAt(index)
         var Room_number = arrayOf<String?>()
         var Time_detail = arrayOf<String?>()
-
+        var starting_row  = tempstarting_row
         class_details_array = ArrayList()
         class_details_array2 = ArrayList()
         var timefortext = " "
 
-        while (starting_row != 21) {
+        while (starting_row != ending) {
             temp_text = xlWs.getRow(starting_row).getCell(starting_cell).toString()
             if (temp_text.contains(searchText.toString())) {
                 val class_conf = temp_text.split("\n").toTypedArray()
                 if (searchText == class_conf[0] ) {
-                    val time = xlWs.getRow(1).getCell(starting_cell).toString()
+                    val time = xlWs.getRow(tempstarting_row-1).getCell(starting_cell).toString()
                     time.also { timefortext = it }
                     val cl_no = xlWs.getRow(starting_row).getCell(1).toString()
                     Time_detail = append(Time_detail, time)
@@ -201,14 +211,14 @@ class avilable_room : Fragment() {
         Room_number = arrayOf<String?>()
         Time_detail = arrayOf<String?>()
         starting_cell = 3
-        starting_row = 2
+        starting_row = tempstarting_row
         if( !(starting_cell ==  temp)) {
-            while (starting_row != 21) {
+            while (starting_row != ending) {
                 temp_text = xlWs.getRow(starting_row).getCell(starting_cell).toString()
                 if (temp_text.contains(searchText.toString())) {
                     val class_conf = temp_text.split("\n").toTypedArray()
                     if (searchText == class_conf[0]) {
-                        val time = xlWs.getRow(1).getCell(starting_cell).toString()
+                        val time = xlWs.getRow(tempstarting_row-1).getCell(starting_cell).toString()
                         val cl_no = xlWs.getRow(starting_row).getCell(1).toString()
                         Time_detail = append(Time_detail, time)
                         Room_number = append(Room_number, cl_no.toString())
@@ -221,14 +231,14 @@ class avilable_room : Fragment() {
             }
         }
         starting_cell = 4
-        starting_row = 2
+        starting_row = tempstarting_row
         if(starting_cell!=temp) {
-            while (starting_row != 21) {
+            while (starting_row != ending) {
                 temp_text = xlWs.getRow(starting_row).getCell(starting_cell).toString()
                 if (temp_text.contains(searchText.toString())) {
                     val class_conf = temp_text.split("\n").toTypedArray()
                     if (searchText == class_conf[0]) {
-                        val time = xlWs.getRow(1).getCell(starting_cell).toString()
+                        val time = xlWs.getRow(tempstarting_row-1).getCell(starting_cell).toString()
                         val cl_no = xlWs.getRow(starting_row).getCell(1).toString()
                         Time_detail = append(Time_detail, time)
                         Room_number = append(Room_number, cl_no.toString())
@@ -241,14 +251,14 @@ class avilable_room : Fragment() {
             }
         }
         starting_cell = 5
-        starting_row = 2
+        starting_row = tempstarting_row
         if(starting_cell!=temp) {
-            while (starting_row != 21) {
+            while (starting_row != ending) {
                 temp_text = xlWs.getRow(starting_row).getCell(starting_cell).toString()
                 if (temp_text.contains(searchText.toString())) {
                     val class_conf = temp_text.split("\n").toTypedArray()
                     if (searchText == class_conf[0]) {
-                        val time = xlWs.getRow(1).getCell(starting_cell).toString()
+                        val time = xlWs.getRow(tempstarting_row-1).getCell(starting_cell).toString()
                         val cl_no = xlWs.getRow(starting_row).getCell(1).toString()
                         Time_detail = append(Time_detail, time)
                         Room_number = append(Room_number, cl_no.toString())
@@ -261,14 +271,14 @@ class avilable_room : Fragment() {
         }
 
         starting_cell = 6
-        starting_row = 2
+        starting_row = tempstarting_row
         if(starting_cell!=temp) {
-            while (starting_row != 21) {
+            while (starting_row != ending) {
                 temp_text = xlWs.getRow(starting_row).getCell(starting_cell).toString()
                 if (temp_text.contains(searchText.toString())) {
                     val class_conf = temp_text.split("\n").toTypedArray()
                     if (searchText == class_conf[0]) {
-                        val time = xlWs.getRow(1).getCell(starting_cell).toString()
+                        val time = xlWs.getRow(tempstarting_row-1).getCell(starting_cell).toString()
                         val cl_no = xlWs.getRow(starting_row).getCell(1).toString()
                         Time_detail = append(Time_detail, time)
                         Room_number = append(Room_number, cl_no.toString())
@@ -281,14 +291,14 @@ class avilable_room : Fragment() {
             }
         }
         starting_cell = 7
-        starting_row = 2
+        starting_row = tempstarting_row
         if(starting_cell!=temp) {
-            while (starting_row != 21) {
+            while (starting_row != ending) {
                 temp_text = xlWs.getRow(starting_row).getCell(starting_cell).toString()
                 if (temp_text.contains(searchText.toString())) {
                     val class_conf = temp_text.split("\n").toTypedArray()
                     if (searchText == class_conf[0]) {
-                        val time = xlWs.getRow(1).getCell(starting_cell).toString()
+                        val time = xlWs.getRow(tempstarting_row-1).getCell(starting_cell).toString()
                         val cl_no = xlWs.getRow(starting_row).getCell(1).toString()
                         Time_detail = append(Time_detail, time)
                         Room_number = append(Room_number, cl_no.toString())

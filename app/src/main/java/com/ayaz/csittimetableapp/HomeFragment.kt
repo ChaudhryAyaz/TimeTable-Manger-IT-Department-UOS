@@ -1,5 +1,5 @@
 package com.ayaz.csittimetableapp
-
+//ALL DONE
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -10,6 +10,7 @@ import android.view.View
 import android.view.View.GONE
 import android.view.ViewGroup
 import android.widget.ListView
+import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import org.apache.poi.ss.usermodel.WorkbookFactory
@@ -49,12 +50,32 @@ class HomeFragment : Fragment() {
         selectedclass = arguments?.getString("key")
         listview = view.findViewById(R.id.home_listview)
         textView.setOnClickListener {
+            val prograssbar1 = view.findViewById<ProgressBar>(R.id.progressBar1)
+            prograssbar1.visibility =View.VISIBLE
             val fragmentmanger = activity?.supportFragmentManager
             val fragemettransaction = fragmentmanger?.beginTransaction()
             fragemettransaction?.replace(R.id.framelayout,classnamepicker())
             fragemettransaction?.commit()
         }
+        //monday
+        //starting row = 2
+//          ending = 19
+//        tuesday
+//        starting_Row = 22
+//        ending = 39
+//        wednesday
+//            starting row = 42
+//        ending = 59
+        //thursday
+//        starting_row  = 62
+//        ending = 79
+        //friday
+//        starting = 82
+//        ending =  99
         var index  = 0
+
+        var tempstarting_row = 2
+        var ending = 19
         var day_name_view = view.findViewById<TextView>(R.id.date_view)
         var day_name = Calendar.getInstance(TimeZone.getTimeZone("UTC")).get(Calendar.DAY_OF_WEEK)
         var day_name2= Calendar.getInstance(TimeZone.getTimeZone("UTC")).get(Calendar.DAY_OF_MONTH)
@@ -64,32 +85,46 @@ class HomeFragment : Fragment() {
             1 -> {
                 day_name_view.text = "Sunday$day_name2/$day_name3"
                 index = 0
+                tempstarting_row = 2
+                ending = 19
                 totalclass_view.text = "Holiday"
                 listview.visibility = GONE
             }
             2 -> {
                 day_name_view.text = "Monday $day_name2/$day_name3"
                 index = 0
+                tempstarting_row = 2
+                ending = 19
             }
             3-> {
                 day_name_view.text = "Tuesday $day_name2/$day_name3"
-                index = 1
+                index = 0
+                tempstarting_row = 22
+                ending = 39
             }
             4 -> {
                 day_name_view.text = "Wednesday $day_name2/$day_name3"
-                index = 2
+                index = 0
+                tempstarting_row = 42
+                ending = 59
             }
             5 -> {
                 day_name_view.text = "Thursday $day_name2/$day_name3"
-                index = 3
+                index = 0
+                tempstarting_row = 62
+                ending = 79
             }
             6 -> {
                 day_name_view.text = "Friday $day_name2/$day_name3"
-                index = 4
+                index = 0
+                tempstarting_row = 82
+                ending = 99
             }
             7-> {
                 day_name_view.text = "Saturday $day_name2/$day_name3"
                 index = 0
+                tempstarting_row = 2
+                ending = 19
                 totalclass_view.text = "Holiday"
                 listview.visibility = GONE
 
@@ -99,7 +134,7 @@ class HomeFragment : Fragment() {
             }
         }
 
-        var starting_row  = 2
+        var starting_row  = tempstarting_row
         var starting_cell  = 2
         var temp_text : String
         var text = ""
@@ -121,12 +156,12 @@ class HomeFragment : Fragment() {
             var Room_number = arrayOf<String?>()
             var Time_detail = arrayOf<String?>()
             class_details_array = ArrayList()
-            while (starting_row != 21) {
+            while (starting_row != ending) {
                 temp_text = xlWs.getRow(starting_row).getCell(starting_cell).toString()
                 if (temp_text.contains(searchText.toString())) {
                     val class_conf = temp_text.split("\n").toTypedArray()
                     if (searchText == class_conf[0]) {
-                        val time = xlWs.getRow(1).getCell(starting_cell).toString()
+                        val time = xlWs.getRow(tempstarting_row-1).getCell(starting_cell).toString()
                         val cl_no = xlWs.getRow(starting_row).getCell(1).toString()
                         Time_detail = append(Time_detail, time)
                         Room_number = append(Room_number, cl_no.toString())
@@ -137,12 +172,12 @@ class HomeFragment : Fragment() {
                 starting_row++
             }
             starting_cell = 3
-            starting_row = 2
-            while (starting_row != 21) {
+            starting_row = tempstarting_row
+            while (starting_row != ending) {
                 temp_text = xlWs.getRow(starting_row).getCell(starting_cell).toString()
                 if (temp_text.contains(searchText.toString())) {val class_conf = temp_text.split("\n").toTypedArray()
                     if (searchText == class_conf[0]) {
-                        val time = xlWs.getRow(1).getCell(starting_cell).toString()
+                        val time = xlWs.getRow(tempstarting_row-1).getCell(starting_cell).toString()
                         val cl_no = xlWs.getRow(starting_row).getCell(1).toString()
                         Time_detail = append(Time_detail, time)
                         Room_number = append(Room_number, cl_no.toString())
@@ -154,13 +189,13 @@ class HomeFragment : Fragment() {
                 starting_row++
             }
             starting_cell = 4
-            starting_row = 2
-            while (starting_row != 21) {
+            starting_row = tempstarting_row
+            while (starting_row != ending) {
                 temp_text = xlWs.getRow(starting_row).getCell(starting_cell).toString()
                 if (temp_text.contains(searchText.toString())) {
                     val class_conf = temp_text.split("\n").toTypedArray()
                     if (searchText == class_conf[0]) {
-                        val time = xlWs.getRow(1).getCell(starting_cell).toString()
+                        val time = xlWs.getRow(tempstarting_row-1).getCell(starting_cell).toString()
                         val cl_no = xlWs.getRow(starting_row).getCell(1).toString()
                         Time_detail = append(Time_detail, time)
                         Room_number = append(Room_number, cl_no.toString())
@@ -172,13 +207,13 @@ class HomeFragment : Fragment() {
                 starting_row++
             }
             starting_cell = 5
-            starting_row = 2
-            while (starting_row != 21) {
+            starting_row = tempstarting_row
+            while (starting_row != ending) {
                 temp_text = xlWs.getRow(starting_row).getCell(starting_cell).toString()
                 if (temp_text.contains(searchText.toString())) {
                     val class_conf = temp_text.split("\n").toTypedArray()
                     if (searchText == class_conf[0]) {
-                        val time = xlWs.getRow(1).getCell(starting_cell).toString()
+                        val time = xlWs.getRow(tempstarting_row-1).getCell(starting_cell).toString()
                         val cl_no = xlWs.getRow(starting_row).getCell(1).toString()
                         Time_detail = append(Time_detail, time)
                         Room_number = append(Room_number, cl_no.toString())
@@ -189,13 +224,13 @@ class HomeFragment : Fragment() {
                 starting_row++
             }
             starting_cell = 6
-            starting_row = 2
-            while (starting_row != 21) {
+            starting_row = tempstarting_row
+            while (starting_row != ending) {
                 temp_text = xlWs.getRow(starting_row).getCell(starting_cell).toString()
                 if (temp_text.contains(searchText.toString())) {
                     val class_conf = temp_text.split("\n").toTypedArray()
                     if (searchText == class_conf[0]) {
-                        val time = xlWs.getRow(1).getCell(starting_cell).toString()
+                        val time = xlWs.getRow(tempstarting_row-1).getCell(starting_cell).toString()
                         val cl_no = xlWs.getRow(starting_row).getCell(1).toString()
                         Time_detail = append(Time_detail, time)
                         Room_number = append(Room_number, cl_no.toString())
@@ -207,13 +242,13 @@ class HomeFragment : Fragment() {
 
             }
             starting_cell = 7
-            starting_row = 2
-            while (starting_row != 21) {
+            starting_row = tempstarting_row
+            while (starting_row != ending) {
                 temp_text = xlWs.getRow(starting_row).getCell(starting_cell).toString()
                 if (temp_text.contains(searchText.toString())) {
                     val class_conf = temp_text.split("\n").toTypedArray()
                     if (searchText == class_conf[0]) {
-                        val time = xlWs.getRow(1).getCell(starting_cell).toString()
+                        val time = xlWs.getRow(tempstarting_row-1).getCell(starting_cell).toString()
                         val cl_no = xlWs.getRow(starting_row).getCell(1).toString()
                         Time_detail = append(Time_detail, time)
                         Room_number = append(Room_number, cl_no.toString())
@@ -226,13 +261,13 @@ class HomeFragment : Fragment() {
 
             }
             starting_cell = 8
-            starting_row = 2
-            while (starting_row != 21) {
+            starting_row = tempstarting_row
+            while (starting_row != ending) {
                 temp_text = xlWs.getRow(starting_row).getCell(starting_cell).toString()
                 if (temp_text.contains(searchText.toString())) {
                     val class_conf = temp_text.split("\n").toTypedArray()
                     if (searchText == class_conf[0]) {
-                        val time = xlWs.getRow(1).getCell(starting_cell).toString()
+                        val time = xlWs.getRow(tempstarting_row-1).getCell(starting_cell).toString()
                         val cl_no = xlWs.getRow(starting_row).getCell(1).toString()
                         Time_detail = append(Time_detail, time)
                         Room_number = append(Room_number, cl_no.toString())
@@ -243,7 +278,7 @@ class HomeFragment : Fragment() {
                 starting_row++
 
             }
-
+        xlWb.close()
         for (i in class_detail.indices){
             val class_d = class_details_data(Time_detail[i].toString(),Room_number[i].toString() ,class_detail[i].toString())
             class_details_array.add(class_d)

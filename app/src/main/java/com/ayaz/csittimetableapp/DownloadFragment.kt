@@ -25,7 +25,7 @@ class DownloadFragment : Fragment() {
     private val filePath = File(Environment.getExternalStorageDirectory().toString() + "/Download/Timetable_v4.xlsx")
     private var param1: String? = null
     private var param2: String? = null
-    val fileurl = "https://drive.google.com/drive/folders/11gVZ2JMPXNWf4wr_2NXxzqOwObMMZBZU?usp=sharing"
+    val fileurl = "https://drive.google.com/uc?export=download&id=1QqpmImHtb6hMRAFaRqX5x3i-hUskJOJj"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -87,7 +87,7 @@ class DownloadFragment : Fragment() {
                 }
                 request.setVisibleInDownloadsUi(true)
                 val dManager = activity?.getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
-                var downloadid = dManager.enqueue(request)
+                 dManager.enqueue(request)
 
 
                 val handler = Handler()
